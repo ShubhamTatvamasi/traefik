@@ -1,0 +1,29 @@
+http:
+
+  routers:
+    router-vm-1:
+      entryPoints:
+        - web
+      rule: "Host(`example.com`)"
+      service: "service-vm-1"
+
+  services:
+    service-vm-1:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.5.53"
+
+tcp:
+
+  routers:
+    router-vm-1:
+      entryPoints:
+        - websecure
+      rule: "HostSNI(`example.com`)"
+      service: service-vm-1
+
+  services:
+    service-vm-1:
+      loadBalancer:
+        servers:
+          - address: "192.168.5.53:443"
