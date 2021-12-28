@@ -10,7 +10,7 @@ while IFS= read -r line; do
   ROUTER=router-${IP//./-}
   SERVICE=service-${IP//./-}
 
-  #  http - router
+  # http - router
   YQ_CMD="yq e '.http.routers.${ROUTER}.entryPoints[0] = \"web\"' -i ${TRAEFIK_DYNAMIC_CONFIG_FILE}"; eval ${YQ_CMD}
   YQ_CMD="yq e '.http.routers.${ROUTER}.rule = \"Host(\`${DOMAIN}\`)\"' -i ${TRAEFIK_DYNAMIC_CONFIG_FILE}"; eval ${YQ_CMD}
   YQ_CMD="yq e '.http.routers.${ROUTER}.service = \"${SERVICE}\"' -i ${TRAEFIK_DYNAMIC_CONFIG_FILE}"; eval ${YQ_CMD}
