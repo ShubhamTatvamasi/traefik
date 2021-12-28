@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 TRAEFIK_DYNAMIC_CONFIG_FILE=dynamic-conf.yaml
 rm ${TRAEFIK_DYNAMIC_CONFIG_FILE}
