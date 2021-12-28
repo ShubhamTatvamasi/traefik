@@ -10,4 +10,4 @@ services:
       - "8080:8080"
     volumes:
       - "./traefik.yaml:/etc/traefik/traefik.yaml:ro"
-      - "./dynamic-conf.yaml:/etc/traefik/dynamic-conf.yaml:ro"
+      - "./dynamic/:/etc/traefik/dynamic/:ro"

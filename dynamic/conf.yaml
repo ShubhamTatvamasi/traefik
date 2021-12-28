@@ -1,24 +1,24 @@
 http:
   routers:
-    router-192-168-5-53:
+    router-192-168-5-10:
       entryPoints:
         - web
       rule: Host(`example.com`)
-      service: service-192-168-5-53
+      service: service-192-168-5-10
   services:
-    service-192-168-5-53:
+    service-192-168-5-10:
       loadBalancer:
         servers:
-          - url: http://192.168.5.53
+          - url: http://192.168.5.10
 tcp:
   routers:
-    router-192-168-5-53:
+    router-192-168-5-10:
       entryPoints:
         - websecure
       rule: HostSNI(`example.com`)
-      service: service-192-168-5-53
+      service: service-192-168-5-10
   services:
-    service-192-168-5-53:
+    service-192-168-5-10:
       loadBalancer:
         servers:
-          - address: 192.168.5.53:443
+          - address: 192.168.5.10:443

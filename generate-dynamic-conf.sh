@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TRAEFIK_DYNAMIC_CONFIG_FILE=dynamic-conf.yaml
+TRAEFIK_DYNAMIC_CONFIG_FILE=dynamic/conf.yaml
 rm ${TRAEFIK_DYNAMIC_CONFIG_FILE}
 touch ${TRAEFIK_DYNAMIC_CONFIG_FILE}
 
