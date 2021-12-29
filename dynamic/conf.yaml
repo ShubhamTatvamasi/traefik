@@ -17,6 +17,8 @@ tcp:
         - websecure
       rule: HostSNI(`example.com`)
       service: service-192-168-5-10
+      tls:
+        passthrough: true
   services:
     service-192-168-5-10:
       loadBalancer:

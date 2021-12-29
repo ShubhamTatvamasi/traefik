@@ -22,6 +22,7 @@ while IFS= read -r line; do
   YQ_CMD="yq e '.tcp.routers.${ROUTER}.entryPoints.[0] = \"websecure\"' -i ${TRAEFIK_DYNAMIC_CONFIG_FILE}"; eval ${YQ_CMD}
   YQ_CMD="yq e '.tcp.routers.${ROUTER}.rule = \"HostSNI(\`${DOMAIN}\`)\"' -i ${TRAEFIK_DYNAMIC_CONFIG_FILE}"; eval ${YQ_CMD}
   YQ_CMD="yq e '.tcp.routers.${ROUTER}.service = \"${SERVICE}\"' -i ${TRAEFIK_DYNAMIC_CONFIG_FILE}"; eval ${YQ_CMD}
+  YQ_CMD="yq e '.tcp.routers.${ROUTER}.tls.passthrough = true' -i ${TRAEFIK_DYNAMIC_CONFIG_FILE}"; eval ${YQ_CMD}
 
   # tcp - service
   YQ_CMD="yq e '.tcp.services.${SERVICE}.loadBalancer.servers[0].address = \"${IP}:443\"' -i ${TRAEFIK_DYNAMIC_CONFIG_FILE}"; eval ${YQ_CMD}
