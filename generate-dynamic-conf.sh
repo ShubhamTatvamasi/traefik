@@ -4,10 +4,12 @@ TRAEFIK_DYNAMIC_CONFIG_FILE=dynamic/conf.yaml
 rm ${TRAEFIK_DYNAMIC_CONFIG_FILE}
 touch ${TRAEFIK_DYNAMIC_CONFIG_FILE}
 
-while IFS= read -r line; do
+COUNTER=0
+while read line; do
   IP=$(echo ${line} | awk '{print $1}')
   DOMAIN=$(echo ${line} | awk '{print $2}')
-  ROUTER=router-${IP//./-}
+  (( COUNTER++ ))
+  ROUTER=router${COUNTER}-${IP//./-}
   SERVICE=service-${IP//./-}
 
   # http - router

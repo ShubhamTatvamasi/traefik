@@ -1,6 +1,6 @@
 http:
   routers:
-    router-192-168-5-10:
+    router1-192-168-5-10:
       entryPoints:
         - web
       rule: Host(`example.com`)
@@ -12,7 +12,7 @@ http:
           - url: http://192.168.5.10
 tcp:
   routers:
-    router-192-168-5-10:
+    router1-192-168-5-10:
       entryPoints:
         - websecure
       rule: HostSNI(`example.com`)
