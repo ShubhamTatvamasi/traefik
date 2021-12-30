@@ -1,8 +1,7 @@
 #!/bin/bash
 
 TRAEFIK_DYNAMIC_CONFIG_FILE=dynamic/conf.yaml
-rm ${TRAEFIK_DYNAMIC_CONFIG_FILE}
-touch ${TRAEFIK_DYNAMIC_CONFIG_FILE}
+echo -n "" > ${TRAEFIK_DYNAMIC_CONFIG_FILE}
 
 COUNTER=0
 while read line; do
