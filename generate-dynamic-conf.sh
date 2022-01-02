@@ -3,12 +3,13 @@
 TRAEFIK_DYNAMIC_CONFIG_FILE=dynamic/conf.yaml
 echo -n "" > ${TRAEFIK_DYNAMIC_CONFIG_FILE}
 
-COUNTER=0
 while read line; do
+  # If the line is empty, skip it
+  [ -z "${line}" ] && continue
+
   IP=$(echo ${line} | awk '{print $1}')
   DOMAIN=$(echo ${line} | awk '{print $2}')
-  (( COUNTER++ ))
-  ROUTER=router${COUNTER}-${IP//./-}
+  ROUTER=router-${DOMAIN//./-}
   SERVICE=service-${IP//./-}
 
   # http - router
