@@ -18,7 +18,7 @@ while read line; do
 
   # http and tcp - rule
   if [ "${DOMAIN:0:1}" == "*" ]; then
-    DOMAIN=$(echo ${DOMAIN} | cut -c 3-)
+    DOMAIN=${DOMAIN:2}
     YQ_CMD="yq e '.http.routers.${ROUTER}.rule = \"HostRegexp(\`{subdomain:.+}.${DOMAIN}\`)\"' -i ${TRAEFIK_DYNAMIC_CONFIG_FILE}"; eval ${YQ_CMD}
     YQ_CMD="yq e '.tcp.routers.${ROUTER}.rule = \"HostSNIRegexp(\`{subdomain:.+}.${DOMAIN}\`)\"' -i ${TRAEFIK_DYNAMIC_CONFIG_FILE}"; eval ${YQ_CMD}
   else
