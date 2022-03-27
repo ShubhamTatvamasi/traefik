@@ -1,8 +1,8 @@
 version: "3.9"
 services:
   traefik:
-    image: "traefik"
-    container_name: "traefik"
+    image: traefik:v2.7
+    container_name: traefik
     restart: unless-stopped
     ports:
       - "80:80"
