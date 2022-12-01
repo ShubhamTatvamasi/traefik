@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TEMP_CONFIG_FILE=/tmp/conf.yaml
+TEMP_CONFIG_FILE="/tmp/treafik-conf-$(date +%s%N).yaml"
 TRAEFIK_CONFIG_FILE=dynamic/conf.yaml
 echo -n "" > ${TEMP_CONFIG_FILE}
 
@@ -40,4 +40,4 @@ while read line; do
 
 done < hosts
 
-cp ${TEMP_CONFIG_FILE} ${TRAEFIK_CONFIG_FILE}
+mv ${TEMP_CONFIG_FILE} ${TRAEFIK_CONFIG_FILE}
