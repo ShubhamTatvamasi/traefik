@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 TEMP_CONFIG_FILE="/tmp/treafik-conf-$(date +%s%N).yaml"
 TRAEFIK_CONFIG_FILE=dynamic/conf.yaml
 echo -n "" > ${TEMP_CONFIG_FILE}
