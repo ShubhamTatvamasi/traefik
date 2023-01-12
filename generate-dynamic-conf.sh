@@ -17,7 +17,7 @@ while read line; do
 
   # http and tcp - entryPoints
   YQ_CMD="yq e '.http.routers.${ROUTER}.entryPoints[0] = \"web\"' -i ${TEMP_CONFIG_FILE}"; eval ${YQ_CMD}
-  YQ_CMD="yq e '.tcp.routers.${ROUTER}.entryPoints.[0] = \"websecure\"' -i ${TEMP_CONFIG_FILE}"; eval ${YQ_CMD}
+  YQ_CMD="yq e '.tcp.routers.${ROUTER}.entryPoints[0] = \"websecure\"' -i ${TEMP_CONFIG_FILE}"; eval ${YQ_CMD}
 
   # http and tcp - rule
   if [ "${DOMAIN:0:1}" == "*" ]; then
