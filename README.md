@@ -1,5 +1,10 @@
 # traefik
 
+Download helm chart:
+```bash
+helm pull --untar oci://ghcr.io/traefik/helm/traefik
+```
+
 Install yq:
 ```bash
 sudo add-apt-repository --yes ppa:rmescandon/yq
