@@ -5,6 +5,13 @@ Download helm chart:
 helm pull --untar oci://ghcr.io/traefik/helm/traefik
 ```
 
+Get `traefik-dashboard` details:
+```bash
+kubectl get IngressRoute -n traefik
+```
+
+---
+
 Install yq:
 ```bash
 sudo add-apt-repository --yes ppa:rmescandon/yq
