@@ -7,7 +7,7 @@ helm pull --untar oci://ghcr.io/traefik/helm/traefik
 
 Get `traefik-dashboard` details:
 ```bash
-kubectl get IngressRoute -n traefik
+kubectl get ingressroute -n traefik
 ```
 
 ---
